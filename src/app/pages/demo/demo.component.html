@@ -1,0 +1,45 @@
+<p class="h3">Global</p>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            @for (col of columnName; track $index) {
+                <th>{{ col }}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{ data.bitcoin_dominance_percentage }}</td>
+                <td>{{ data.cryptocurrencies_number }}</td>
+                <td>{{ data.last_updated }}</td>
+                <td>{{ data.market_cap_ath_date | date: 'short' }}</td>
+            </tr>
+    </tbody>
+</table>
+
+<p class="h3">Today Volume (BTC)</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                @for (col of columnCoin; track $index) {
+                    <th>{{ col }}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+                @for (data of coinList; track $index) {
+                    <tr>
+                        <td>{{ data.close }}</td>
+                        <td>{{ data.high }}</td>
+                        <td>{{ data.low }}</td>
+                        <td>{{ data.market_cap }}</td>
+                        <td>{{ data.open }}</td>
+                        <td>{{ data.time_close | date: 'short' }}</td>
+                        <td>{{ data.time_open | date: 'short' }}</td>
+                        <td>{{ data.volume }}</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>
